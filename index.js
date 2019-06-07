@@ -27,7 +27,7 @@ const STORE = [
  */
 function render(){
 //create and display html
-  STORE.map(function(element){
+  let htmlCode = STORE.map(function(element){
     if(element.checked){
       return `<li>
       <span class="shopping-item shopping-item__checked">${element.name}</span>
@@ -54,6 +54,8 @@ function render(){
     </li>`;
     }
   });
+  
+  $('.js-shopping-list').html(htmlCode);
 }
 /**
 *
@@ -76,5 +78,6 @@ function checkItem(){
 }
 function main(){
   addItem();
+  render();
 }
 $(main);
