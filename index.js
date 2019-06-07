@@ -60,9 +60,11 @@ function render(){
 */
 function addItem(){
 //on user input, adds items to the store
-  $('#js-shopping-list--form').submit(function(event) {
-    let userInput = $(event.currentTarget).val();
+  $('#js-shopping-list-form').submit(function(event) {
+    event.preventDefault();
+    let userInput =$(event.target).parent().find('.js-shopping-list-entry').val();
     STORE.push(new items(userInput));
+    //console.log(STORE);
   });
 }
 
@@ -73,5 +75,6 @@ function checkItem(){
 //on user input, toggle the state of the item
 }
 function main(){
+  addItem();
 }
 $(main);
