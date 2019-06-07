@@ -13,6 +13,12 @@ class items{
   }
 }
 
+const STORE = [
+  new items('apples'),
+  new items('oranges'),
+  new items('milk', true),
+  new items('bread') 
+];
 
 /**
  * @param{array} store objects
@@ -27,7 +33,12 @@ function render(){
 */
 function addItem(){
 //on user input, adds items to the store
+  $('#js-shopping-list--form').submit(function(event) {
+    let userInput = $(event.currentTarget).val();
+    STORE.push(new items(userInput));
+  });
 }
+
 function deleteItem(){
 //on user input,removes items to the store
 }
