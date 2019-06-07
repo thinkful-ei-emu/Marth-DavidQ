@@ -27,6 +27,33 @@ const STORE = [
  */
 function render(){
 //create and display html
+  STORE.map(function(element){
+    if(element.checked){
+      return `<li>
+      <span class="shopping-item shopping-item__checked">${element.name}</span>
+      <div class="shopping-item-controls">
+        <button class="shopping-item-toggle">
+          <span class="button-label">check</span>
+        </button>
+        <button class="shopping-item-delete">
+          <span class="button-label">delete</span>
+        </button>
+      </div>
+  </li>`;
+    } else {
+      return `<li>
+        <span class="shopping-item">${element.name}</span>
+        <div class="shopping-item-controls">
+          <button class="shopping-item-toggle">
+            <span class="button-label">check</span>
+          </button>
+          <button class="shopping-item-delete">
+            <span class="button-label">delete</span>
+          </button>
+        </div>
+    </li>`;
+    }
+  });
 }
 /**
 *
